@@ -13,7 +13,7 @@
       <h1 class="text-2xl font-bold px-6">Calculadora de Investimentos</h1>
       <form class="w-full">
         <div class="flex w-full flex-col px-6 my-2">
-          <label for="staring-amount" class="font-bold text-gray-700"
+          <label for="starting-amount" class="font-bold text-gray-700"
             >Investimento inicial</label
           >
           <div class="flex">
@@ -27,7 +27,7 @@
               type="text"
               class="w-5/6 rounded-r-lg px-2"
               placeholder="0.00"
-              id="staring-amount"
+              id="starting-amount"
             />
           </div>
         </div>
@@ -117,6 +117,7 @@
       </form>
       <div class="flex h-12 px-6 my-8 w-full gap-3">
         <button
+          id="calculate-results"
           class="w-1/2 rounded-lg bg-emerald-950 text-slate-200 hover:bg-emerald-800"
         >
           Calcular
@@ -127,5 +128,6 @@
     <main>
       <p>Resultados</p>
     </main>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
