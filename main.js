@@ -27,4 +27,4 @@ function renderProgression(evt) {
   console.log(returnsArray);
 }
 
-calculateButton.addEventListener("submit", renderProgression);
+form.addEventListener("submit", renderProgression);
