@@ -1,9 +1,13 @@
+import { document } from "postcss";
 import { generateReturnsArray } from "./src/investmentGoals";
 
 const form = document.getElementById("investment-form");
 
 function renderProgression(evt) {
   evt.preventDefault();
+  if (document.querySelector(".error")) {
+    return;
+  }
   const startingAmount = Number(
     document.getElementById("starting-amount").value.replace(",", ".")
   );
@@ -40,19 +44,29 @@ function validateInput(evt) {
   const grandParentElement = evt.target.parentElement.parentElement;
   const inputValue = evt.target.value.replace(",", ".");
 
-  if (isNaN(inputValue) || Number(inputValue) <= 0) {
+  if (
+    isNaN(inputValue) ||
+    (Number(inputValue) <= 0 && !parentElement.classList.contains("error"))
+  ) {
     const errorTextElement = document.createElement("p");
     errorTextElement.classList.add("text-red-500");
     errorTextElement.innerText = "Insira um valor numérico e maior que zero";
 
     parentElement.classList.add("error");
     grandParentElement.appendChild(errorTextElement);
+  } else if (
+    parentElement.classList.contains("error") &&
+    !isNaN(inputValue) &&
+    Number(inputValue) > 0
+  ) {
+    parentElement.classList.remove("error");
+    grandParentElement.querySelector("p").remove();
   }
 }
 
 for (const formElement of form.elements) {
   if (formElement.tagName === "INPUT" && formElement.hasAttribute("id")) {
-    formElement.addEventListener("change", validateInput);
+    formElement.addEventListener("blur", validateInput);
   }
 }
 
