@@ -1,7 +1,7 @@
-import { document } from "postcss";
 import { generateReturnsArray } from "./src/investmentGoals";
 
-const form = document.getElementById("investment-form");
+const form = document.querySelector("#investment-form");
+const clearFormButton = document.querySelector("#clear-form");
 
 function renderProgression(evt) {
   evt.preventDefault();
@@ -33,6 +33,21 @@ function renderProgression(evt) {
     returnRatePeriod
   );
   console.log(returnsArray);
+}
+
+function clearForm() {
+  form["starting-amount"].value = "";
+  form["additional-contribution"].value = "";
+  form["time-amount"].value = "";
+  form["return-rate"].value = "";
+  form["tax-rate"].value = "";
+
+  const errorInputsContainers = document.querySelectorAll(".error");
+
+  for (const errorInputsContainer of errorInputsContainers) {
+    errorInputsContainer.classList.remove("error");
+    errorInputsContainer.parentElement.querySelector("p").remove();
+  }
 }
 
 function validateInput(evt) {
@@ -71,3 +86,4 @@ for (const formElement of form.elements) {
 }
 
 form.addEventListener("submit", renderProgression);
+clearFormButton.addEventListener("click", clearForm);
