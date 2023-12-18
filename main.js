@@ -1,7 +1,11 @@
+import { data } from "autoprefixer";
 import { generateReturnsArray } from "./src/investmentGoals";
+import { Chart } from "chart.js/auto";
 
 const form = document.querySelector("#investment-form");
 const clearFormButton = document.querySelector("#clear-form");
+const finalMoneyChat = document.querySelector("#final-money-distribution");
+const progressionChart = document.querySelector("#progression");
 
 function renderProgression(evt) {
   evt.preventDefault();
@@ -32,7 +36,24 @@ function renderProgression(evt) {
     returnRate,
     returnRatePeriod
   );
-  console.log(returnsArray);
+  new Chart(finalMoneyChat, {
+    type: "doughnut",
+    data: {
+      labels: ["Red", "Blue", "Yellow"],
+      datasets: [
+        {
+          label: "My First Dataset",
+          data: [300, 50, 100],
+          backgroundColor: [
+            "rgb(255, 99, 132)",
+            "rgb(54, 162, 235)",
+            "rgb(255, 205, 86)",
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    },
+  });
 }
 
 function clearForm() {
