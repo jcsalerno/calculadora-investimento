@@ -9,6 +9,14 @@ const progressionChart = document.querySelector("#progression");
 let doughuntChartReference = {};
 let progressionChartReference = {};
 
+const columnsArray = [
+  { columnLabel: "Total Investido", acessor: "investedAmount" },
+  { columnLabel: "Rendimento Mensal", acessor: "interestReturns" },
+  { columnLabel: "Rendimento Total", acessor: "totalInterestReturns" },
+  { columnLabel: "Mês", acessor: "month" },
+  { columnLabel: "Quantia Total", acessor: "totalAmount" },
+];
+
 function formatCurrency(value) {
   return value.toFixed(2);
 }
