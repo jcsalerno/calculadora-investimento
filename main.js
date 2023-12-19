@@ -7,6 +7,10 @@ const clearFormButton = document.querySelector("#clear-form");
 const finalMoneyChat = document.querySelector("#final-money-distribution");
 const progressionChart = document.querySelector("#progression");
 
+function formatCurrency(value) {
+  return value.toFixed(2);
+}
+
 function renderProgression(evt) {
   evt.preventDefault();
   if (document.querySelector(".error")) {
@@ -36,14 +40,24 @@ function renderProgression(evt) {
     returnRate,
     returnRatePeriod
   );
+
+  const finalInvestmentObject = returnsArray[returnsArray.length - 1];
+
   new Chart(finalMoneyChat, {
     type: "doughnut",
     data: {
-      labels: ["Red", "Blue", "Yellow"],
+      labels: ["Total Investido", "Rendimento", "Imposto"],
       datasets: [
         {
-          label: "My First Dataset",
-          data: [300, 50, 100],
+          data: [
+            formatCurrency(finalInvestmentObject.investedAmount),
+            formatCurrency(
+              finalInvestmentObject.totalInterestReturns * (1 - textRate / 100)
+            ),
+            formatCurrency(
+              finalInvestmentObject.totalInterestReturns * (textRate / 100)
+            ),
+          ],
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(54, 162, 235)",
