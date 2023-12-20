@@ -1,5 +1,6 @@
 import { generateReturnsArray } from "./src/investmentGoals";
 import { Chart } from "chart.js/auto";
+import { createTable } from "./src/table";
 
 const form = document.querySelector("#investment-form");
 const clearFormButton = document.querySelector("#clear-form");
@@ -10,15 +11,31 @@ let doughuntChartReference = {};
 let progressionChartReference = {};
 
 const columnsArray = [
-  { columnLabel: "Total Investido", acessor: "investedAmount" },
-  { columnLabel: "Rendimento Mensal", acessor: "interestReturns" },
-  { columnLabel: "Rendimento Total", acessor: "totalInterestReturns" },
-  { columnLabel: "Mês", acessor: "month" },
-  { columnLabel: "Quantia Total", acessor: "totalAmount" },
+  { columnLabel: "Mês", accessor: "month" },
+  {
+    columnLabel: "Total Investido",
+    accessor: "investedAmount",
+    format: (numberInfo) => formatCurrency(numberInfo),
+  },
+  {
+    columnLabel: "Rendimento Mensal",
+    accessor: "interestReturns",
+    format: (numberInfo) => formatCurrency(numberInfo),
+  },
+  {
+    columnLabel: "Rendimento Total",
+    accessor: "totalInterestReturns",
+    format: (numberInfo) => formatCurrency(numberInfo),
+  },
+  {
+    columnLabel: "Quantia Total",
+    accessor: "totalAmount",
+    format: (numberInfo) => formatCurrency(numberInfo),
+  },
 ];
 
 function formatCurrency(value) {
-  return value.toFixed(2);
+  return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
 function renderProgression(evt) {
@@ -113,6 +130,7 @@ function renderProgression(evt) {
       },
     },
   }); */
+  createTable(columnsArray, returnsArray, "results-table");
 }
 
 function isObjectEmpty(obj) {
