@@ -133,24 +133,28 @@
       </div>
     </aside>
     <main class="row-span-2 col-span-2">
-      <section id="charts-container" class="h-full">
-        <div class="h-[36%] flex flex-col items-center pb-10">
-          <p class="font-bold text-lg">Resultado Final</p>
-          <canvas id="final-money-distribution"></canvas>
-        </div>
+      <div id="carousel" class="h-full w-full flex overflow-x-auto">
+        <section id="charts-container" class="h-full basis-full shrink-0">
+          <div class="h-[36%] flex flex-col items-center pb-10">
+            <p class="font-bold text-lg">Resultado Final</p>
+            <canvas id="final-money-distribution"></canvas>
+          </div>
 
-        <div class="h-[56%] flex flex-col items-center">
-          <p class="font-bold text-lg">Progressão</p>
-          <canvas id="progression"></canvas>
-        </div>
-      </section>
-      <section id="table-container" class="h-full overflow-y-auto">
-        <p class="font-bold text-lg text-center">Resultados Mensais</p>
-        <table
-          id="results-table"
-          class="w-full max-h-bull border border-separete"
+          <div class="h-[56%] flex flex-col items-center">
+            <p class="font-bold text-lg">Progressão</p>
+            <canvas id="progression"></canvas>
+          </div>
+        </section>
+        <section
+          id="table-container"
+          class="h-full overflow-y-auto basis-full shrink-0"
         >
-          <!-- <thead>
+          <p class="font-bold text-lg text-center">Resultados Mensais</p>
+          <table
+            id="results-table"
+            class="w-full max-h-bull border border-separete"
+          >
+            <!-- <thead>
             <th>Mês</th>
             <th>Juros</th>
             <th>Total Investido</th>
@@ -172,8 +176,9 @@
               <td class="text-center">1200</td>
             </tr>
           </tbody> -->
-        </table>
-      </section>
+          </table>
+        </section>
+      </div>
     </main>
     <script type="module" src="./main.js"></script>
   </body>
