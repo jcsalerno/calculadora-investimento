@@ -54,7 +54,7 @@ function renderProgression(evt) {
 
   const finalInvestmentObject = returnsArray[returnsArray.length - 1];
 
-  doughuntChartReference = new Chart(finalMoneyChat, {
+  /*  doughuntChartReference = new Chart(finalMoneyChat, {
     type: "doughnut",
     data: {
       labels: ["Total Investido", "Rendimento", "Imposto"],
@@ -112,7 +112,7 @@ function renderProgression(evt) {
         },
       },
     },
-  });
+  }); */
 }
 
 function isObjectEmpty(obj) {
@@ -181,5 +181,5 @@ for (const formElement of form.elements) {
   }
 }
 
-//form.addEventListener("submit", renderProgression);
+form.addEventListener("submit", renderProgression);
 clearFormButton.addEventListener("click", clearForm);
