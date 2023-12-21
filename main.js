@@ -137,6 +137,26 @@ function renderProgression(evt) {
   createTable(columnsArray, returnsArray, "results-table");
 }
 
+function clearTable(tableId) {
+  const tableElement = document.getElementById(tableId);
+  if (tableElement && tableElement.nodeName === "TABLE") {
+    const tbodyElement = tableElement.querySelector("tbody");
+    if (tbodyElement) {
+      tbodyElement.innerHTML = ""; // Limpar o conteúdo da tabela
+    }
+  }
+}
+
+function clearTableHeader(tableId) {
+  const tableElement = document.getElementById(tableId);
+  if (tableElement && tableElement.nodeName === "TABLE") {
+    const theadElement = tableElement.querySelector("thead");
+    if (theadElement) {
+      theadElement.innerHTML = ""; // Limpar o conteúdo do cabeçalho da tabela
+    }
+  }
+}
+
 function isObjectEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
@@ -159,13 +179,15 @@ function clearForm() {
   form["tax-rate"].value = "";
 
   resetCharts();
-
+  clearTable("results-table");
+  clearTableHeader("results-table");
   const errorInputsContainers = document.querySelectorAll(".error");
 
   for (const errorInputsContainer of errorInputsContainers) {
     errorInputsContainer.classList.remove("error");
     errorInputsContainer.parentElement.querySelector("p").remove();
   }
+  clearTable("results-table");
 }
 
 function validateInput(evt) {
