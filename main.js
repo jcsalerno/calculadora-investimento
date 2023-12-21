@@ -73,6 +73,10 @@ function renderProgression(evt) {
     returnRatePeriod
   );
 
+  // Limpar a tabela existente antes de criar uma nova
+  clearTable("results-table");
+  clearTableHeader("results-table");
+
   const finalInvestmentObject = returnsArray[returnsArray.length - 1];
 
   doughuntChartReference = new Chart(finalMoneyChat, {
@@ -134,6 +138,8 @@ function renderProgression(evt) {
       },
     },
   });
+
+  // Criar a nova tabela com os resultados
   createTable(columnsArray, returnsArray, "results-table");
 }
 
