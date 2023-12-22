@@ -1,30 +1,49 @@
-# Calculadora de Investimentos
+#Calculadora de Investimentos
 
-Uma calculadora simples para simular investimentos financeiros e visualizar resultados mensais.
+Este é um projeto de calculadora de investimentos que permite visualizar a progressão do investimento ao longo do tempo, apresentando gráficos e uma tabela com resultados mensais.
 
 ## Funcionalidades
 
-- Calcula o resultado final de um investimento com base em parâmetros fornecidos.
-- Gera uma tabela de resultados mensais.
+1. Formulário de Investimento
 
-# Como Funciona
+O formulário de investimento permite ao usuário inserir as seguintes informações:
 
-1. Validação e Criação da Tabela:
-   O código começa com a definição de uma função isNonEmptyArray que verifica se um array é não vazio. Em seguida, há a definição da função createTable, que cria uma tabela HTML a partir de arrays de colunas e dados.
+    Investimento Inicial: Montante inicial investido.
+    Aportes Adicionais: Quantidade adicional investida periodicamente.
+    Prazo: Período de investimento, podendo ser mensal ou anual.
+    Rentabilidade: Taxa de retorno do investimento.
+    Impostos sobre Lucro: Percentual de impostos sobre o lucro.
 
-2. Criação do Cabeçalho da Tabela:
-   A função createTableHeader é responsável por criar o cabeçalho da tabela. Ela recebe uma referência à tabela e um array de colunas, criando elementos <th> para cada coluna.
+2. Gráficos
 
-3. Criação do Corpo da Tabela:
-   A função createTableBody é encarregada de criar o corpo da tabela. Similar à criação do cabeçalho, ela percorre o array de dados, criando uma linha <tr> para cada item e preenchendo as células <td> com os dados correspondentes.
+O projeto apresenta dois gráficos:
+2.1. Resultado Final
 
-4. Integração com Gráficos
+    Gráfico de Rosca (Doughnut):
+        Mostra a distribuição do valor total investido, rendimento e impostos sobre o rendimento.
 
-5. Manipulação do Formulário e Interface Gráfica:
-   A segunda parte do código lida com a manipulação do formulário HTML, validação de entrada, e a interação com gráficos (que está comentada). Além disso, há funções para limpar o formulário e redefinir gráficos.
+2.2. Progressão
 
-6. HTML e CSS:
-   O HTML define a estrutura da página, incluindo um formulário e seções para tabelas e gráficos (comentados). O CSS fornece estilos para a interface.
+    Gráfico de Barras (Bar):
+        Exibe a progressão do investimento ao longo do tempo, incluindo o total investido e o retorno do investimento.
 
-7. Uso de Módulos:
-   O código é dividido em módulos usando o import. O módulo principal é main.js, e há importações de funções de outros módulos.
+3. Tabela de Resultados Mensais
+
+Uma tabela apresenta os resultados mensais do investimento, incluindo informações como mês, total investido, rendimento mensal, rendimento total e quantia total. 4. Funcionalidade de Limpar
+
+Um botão "Limpar" permite ao usuário reiniciar o formulário, limpando os dados inseridos, os gráficos e a tabela.
+Como Usar
+
+    Abra o arquivo index.html em um navegador web.
+    Preencha o formulário de investimento com as informações desejadas.
+    Clique no botão "Calcular" para visualizar os gráficos e a tabela com os resultados mensais.
+    Utilize o botão "Limpar" para reiniciar o formulário e limpar os resultados.
+
+Observação: Certifique-se de preencher os campos corretamente para obter resultados precisos.
+Requisitos
+
+## Foto Projeto
+
+![foto do projeto](foto-projeto.png)
+
+## Este projeto é apenas educativo e não oferece garantias quanto à precisão dos cálculos ou conselhos financeiros.
