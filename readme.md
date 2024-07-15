@@ -51,6 +51,6 @@ Um botão "Limpar" permite que você reinicie o formulário, limpando os dados i
 
 ## Deploy
 
-https://calculadora.jcsalerno.com.br/
+<a href="https://calculadora.jcsalerno.com.br/" target="_blank">Aplicação Funcional</a>
 
 ## Este projeto é apenas educativo e não oferece garantias quanto à precisão dos cálculos ou conselhos financeiros.
