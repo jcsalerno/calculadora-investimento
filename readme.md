@@ -49,4 +49,8 @@ Um botão "Limpar" permite que você reinicie o formulário, limpando os dados i
 
 ![foto do projeto](foto-projeto.png)
 
+## Deploy
+
+https://calculadora.jcsalerno.com.br/
+
 ## Este projeto é apenas educativo e não oferece garantias quanto à precisão dos cálculos ou conselhos financeiros.
